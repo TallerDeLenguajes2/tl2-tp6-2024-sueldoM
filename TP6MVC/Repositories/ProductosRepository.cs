@@ -87,7 +87,7 @@ public class ProductosRepository{
         }
     }
 
-    public void modificarProducto(int id, Producto producto)
+    public void modificarProducto(Producto producto)
     {
         var query = "UPDATE Productos SET Descripcion = @Descripcion, Precio = @Precio WHERE idProducto = @idProducto";
         using (var connection = new SqliteConnection(connectionString))
@@ -95,9 +95,9 @@ public class ProductosRepository{
             connection.Open();
             using (var command = new SqliteCommand(query, connection))
             {
-                command.Parameters.Add(new SqliteParameter("@Nombre", producto.Descripcion1));
+                command.Parameters.Add(new SqliteParameter("@Descripcion", producto.Descripcion1));
                 command.Parameters.Add(new SqliteParameter("@Precio", producto.Precio));
-                command.Parameters.Add(new SqliteParameter("@idProducto", id));
+                command.Parameters.Add(new SqliteParameter("@idProducto", producto.IdProducto));
                 
                 command.ExecuteNonQuery();
             }

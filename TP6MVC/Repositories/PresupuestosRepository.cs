@@ -149,5 +149,9 @@ public class PresupuestosRepository
         return presupuestos;
     }
 
-}
+        internal void ModificarPresupuesto(int id, Presupuesto presupuesto)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

@@ -39,6 +39,7 @@ public class ProductoController : Controller
         return RedirectToAction("Listar");
     }
 
+    [HttpGet]
     public IActionResult Modificar(int id)
     {
         Producto producto = repositorioProd.ObtenerProductoID(id);
@@ -46,9 +47,9 @@ public class ProductoController : Controller
     }
 
     [HttpPost]
-    public IActionResult Modificar(int id, Producto producto)
+    public IActionResult Modificar(Producto producto)
     {
-        repositorioProd.modificarProducto(id, producto);
+        repositorioProd.modificarProducto(producto);
         return RedirectToAction("Listar");
     }
 

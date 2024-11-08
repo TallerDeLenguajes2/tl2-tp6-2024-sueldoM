@@ -1,0 +1,18 @@
+@model TP6MVC.Models.Producto
+
+<form asp-controller="Producto" asp-action="Crear">
+    <div class="form-group">
+        <label asp-for="@Model.Descripcion1">Nombre</label>
+        <input asp-for="@Model.Descripcion1" class="form-control" />
+        <span asp-validation-for="@Model.Descripcion1" class="text-danger"></span>    
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Precio"></label>
+        <input asp-for="@Model.Precio" class="form-control" />
+        <span asp-validation-for="@Model.Precio" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }
