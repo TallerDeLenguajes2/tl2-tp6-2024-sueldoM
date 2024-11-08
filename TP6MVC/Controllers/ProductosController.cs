@@ -1,11 +1,26 @@
 using Microsoft.AspNetCore.Mvc;
-using TP6MVC.Models; // Asegúrate de ajustar el namespace
+using TP6MVC.Models;
+using TP6MVC.Repositories;
 using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+
+namespace TP6MVC.Controllers;
 
 public class ProductoController : Controller
 {
-    private readonly ProductosRepository repositorioProd = new ProductosRepository();
+    private readonly ProductosRepository repositorioProd;
+    private readonly ILogger<ProductoController> _logger;
 
+    public ProductoController(ILogger<ProductoController> logger)
+    {
+        _logger = logger;
+        repositorioProd = new ProductosRepository();
+    }
+    
     public IActionResult Listar()
     {
         List<Producto> productos = repositorioProd.ListarProductos();

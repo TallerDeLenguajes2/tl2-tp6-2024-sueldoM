@@ -4,7 +4,10 @@ using System.Data;
 using Microsoft.AspNetCore.SignalR.Protocol;
 using Microsoft.Data.Sqlite;
 using SQLitePCL;
+using TP6MVC.Models;
 
+namespace TP6MVC.Repositories
+{
 public class ProductosRepository{
     private string connectionString = "Data Source=db/Tienda.db;Cache=Shared";
     public void CrearProducto(Producto producto)
@@ -101,4 +104,4 @@ public class ProductosRepository{
         }
     }
 }
-
+}

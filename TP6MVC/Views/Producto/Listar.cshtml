@@ -1,0 +1,32 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model List<TP6MVC.Models.Producto>
+
+<h2>Product List</h2>
+
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th hidden>ID</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var producto in Model)
+        {
+            <tr>
+                <td hidden>@producto.IdProducto</td>
+                <td>@producto.Descripcion1</td>
+                <td>@producto.Precio</td>
+                <td>
+                    <a asp-controller="Producto" asp-action="EditarProducto" asp-route-idProducto="@producto.IdProducto">Editar</a>
+                    <a asp-controller="Producto" asp-action="DeleteProducto" asp-route-idProducto="@producto.IdProducto" onclick="return confirm('¿Estas seguro que quieres eliminar el elemento?')">Eliminar</a>                      
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

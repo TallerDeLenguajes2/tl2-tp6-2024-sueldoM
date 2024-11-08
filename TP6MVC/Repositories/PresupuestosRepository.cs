@@ -4,7 +4,9 @@ using System.Data;
 using Microsoft.AspNetCore.SignalR.Protocol;
 using Microsoft.Data.Sqlite;
 using SQLitePCL;
+using TP6MVC.Models;
 
+namespace TP6MVC.Repositories{
 public class PresupuestosRepository
 {
     private string connectionString = "Data Source=db/Tienda.db;Cache=Shared";
@@ -147,4 +149,5 @@ public class PresupuestosRepository
         return presupuestos;
     }
 
+}
 }

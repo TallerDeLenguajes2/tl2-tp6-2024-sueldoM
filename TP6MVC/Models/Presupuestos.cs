@@ -1,3 +1,4 @@
+namespace TP6MVC.Models{
 public class Presupuesto{
     private int idPresupuesto;
     private string? NombreDestinatario;
@@ -8,4 +9,5 @@ public class Presupuesto{
     public string? NombreDestinatario1 { get => NombreDestinatario; set => NombreDestinatario = value; }
     public string? FechaCreacion1 { get => FechaCreacion; set => FechaCreacion = value; }
     public List<PresupuestoDetalle>? Detalle { get => detalle; set => detalle = value; }
+}
 }
