@@ -62,7 +62,7 @@ public class PresupuestosRepository
         return presupuesto;
     }
 
-    private List<PresupuestoDetalle> obtenerDetalles(int id)
+    public List<PresupuestoDetalle> obtenerDetalles(int id)
     {
         var detalles = new List<PresupuestoDetalle>();
         var query = "SELECT idProducto, Cantidad FROM PresupuestosDetalle WHERE idPresupuesto = @idPresupuesto";

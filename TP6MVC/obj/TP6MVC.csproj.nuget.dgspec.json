@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\P0L0\\Desktop\\Archivos word\\15-Taller de Lenguajes 2\\TP6\\tl2-tp6-2024-sueldoM\\TP6MVC\\TP6MVC.csproj": {}
+    "c:\\Users\\P0L0\\Desktop\\Archivos word\\15-Taller de Lenguajes 2\\TP6\\tl2-tp6-2024-sueldoM\\TP6MVC\\TP6MVC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\P0L0\\Desktop\\Archivos word\\15-Taller de Lenguajes 2\\TP6\\tl2-tp6-2024-sueldoM\\TP6MVC\\TP6MVC.csproj": {
+    "c:\\Users\\P0L0\\Desktop\\Archivos word\\15-Taller de Lenguajes 2\\TP6\\tl2-tp6-2024-sueldoM\\TP6MVC\\TP6MVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\P0L0\\Desktop\\Archivos word\\15-Taller de Lenguajes 2\\TP6\\tl2-tp6-2024-sueldoM\\TP6MVC\\TP6MVC.csproj",
+        "projectUniqueName": "c:\\Users\\P0L0\\Desktop\\Archivos word\\15-Taller de Lenguajes 2\\TP6\\tl2-tp6-2024-sueldoM\\TP6MVC\\TP6MVC.csproj",
         "projectName": "TP6MVC",
-        "projectPath": "C:\\Users\\P0L0\\Desktop\\Archivos word\\15-Taller de Lenguajes 2\\TP6\\tl2-tp6-2024-sueldoM\\TP6MVC\\TP6MVC.csproj",
+        "projectPath": "c:\\Users\\P0L0\\Desktop\\Archivos word\\15-Taller de Lenguajes 2\\TP6\\tl2-tp6-2024-sueldoM\\TP6MVC\\TP6MVC.csproj",
         "packagesPath": "C:\\Users\\P0L0\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\P0L0\\Desktop\\Archivos word\\15-Taller de Lenguajes 2\\TP6\\tl2-tp6-2024-sueldoM\\TP6MVC\\obj\\",
+        "outputPath": "c:\\Users\\P0L0\\Desktop\\Archivos word\\15-Taller de Lenguajes 2\\TP6\\tl2-tp6-2024-sueldoM\\TP6MVC\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\P0L0\\AppData\\Roaming\\NuGet\\NuGet.Config"

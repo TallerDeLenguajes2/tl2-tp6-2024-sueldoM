@@ -4,7 +4,15 @@ using System.Collections.Generic;
 namespace TP6MVC.Repositories{
 public class PresupuestoController : Controller
 {
-    private readonly PresupuestosRepository repositorioPresup = new PresupuestosRepository();
+    private readonly PresupuestosRepository repositorioPresup;
+
+    private readonly ILogger<PresupuestoController> _logger;
+
+    public PresupuestoController(ILogger<PresupuestoController> logger)
+    {
+        _logger = logger;
+        repositorioPresup = new PresupuestosRepository();
+    }
 
     public IActionResult Listar()
     {
@@ -53,6 +61,11 @@ public class PresupuestoController : Controller
     {
         Presupuesto presupuesto = repositorioPresup.ObtenerPresupuestoPorId(id);
         return View(presupuesto);
+    }
+
+    public IActionResult VerDetallesPresupuesto(int id)
+    {
+        return View(repositorioPresup.obtenerDetalles(id));
     }
 }
 }

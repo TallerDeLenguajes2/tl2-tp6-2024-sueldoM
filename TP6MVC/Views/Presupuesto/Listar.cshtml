@@ -1,0 +1,36 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model List<TP6MVC.Models.Presupuesto>
+
+<h2>Product List</h2>
+
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th hidden>ID</th>
+            <th>Destinatario</th>
+            <th>Fecha de Creacion</th>
+            <th>Detalles del Presupuesto</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var presupuesto in Model)
+        {
+            <tr>
+                <td hidden>@presupuesto.IdPresupuesto</td>
+                <td>@presupuesto.NombreDestinatario1</td>
+                <td>@presupuesto.FechaCreacion1</td>
+                <td>
+                    <a asp-controller="Presupuesto" asp-action="VerDetallesPresupuesto" asp-route-id="@presupuesto.IdPresupuesto">Ver Detalles</a>
+                </td>
+                <td>
+                    <a asp-controller="Presupuesto" asp-action="Modificar" asp-route-id="@presupuesto.IdPresupuesto">Editar</a>
+                    <a asp-controller="Presupuesto" asp-action="Eliminar" asp-route-id="@presupuesto.IdPresupuesto" onclick="return confirm('¿Estas seguro que quieres eliminar el elemento?')">Eliminar</a>                      
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
