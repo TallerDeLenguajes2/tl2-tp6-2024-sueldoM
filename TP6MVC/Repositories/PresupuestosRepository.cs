@@ -54,7 +54,7 @@ public class PresupuestosRepository
             while (reader.Read())
             {
                 presupuesto.IdPresupuesto = Convert.ToInt32(reader["idPresupuesto"]);
-                presupuesto.NombreDestinatario1 = reader["NombreDestinatario"].ToString();
+                presupuesto.Cliente1.ClienteId1 = Convert.ToInt32(reader["Cliente"]);
                 presupuesto.FechaCreacion1 = reader["FechaCreacion"].ToString();
                 presupuesto.Detalle = obtenerDetalles(id);
             }
@@ -137,7 +137,7 @@ public class PresupuestosRepository
                     var presupuesto = new Presupuesto
                     {
                         IdPresupuesto = reader.GetInt32(0),
-                        NombreDestinatario1 = reader.GetString(1),
+                        Cliente1.ClienteId = reader.GetInt32(1),
                         FechaCreacion1 = reader.GetString(2),
                         Detalle = obtenerDetalles(reader.GetInt32(0))
                     };
