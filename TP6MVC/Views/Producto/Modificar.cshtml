@@ -1,5 +1,5 @@
 @model TP6MVC.Models.Producto
-
+<h2>Modificando Porducto</h2>
 <form asp-controller="Producto" asp-action="Modificar">
     <input hidden asp-for="@Model.IdProducto">
     <div class="form-group">
@@ -13,5 +13,5 @@
         <input asp-for="@Model.Precio" class="form-control" />
         <span asp-for="@Model.Descripcion1" class="form-control" />
     </div>
-    <button type="submit">Enviar</button>
+    <button type="submit" class="btn btn-success">Enviar</button>
 </form>

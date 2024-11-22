@@ -1,12 +1,12 @@
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Lista de Presupuesto";
 }
 
 @model List<TP6MVC.Models.Presupuesto>
 
-<h2>Product List</h2>
+<h2>Lista de Presupuestos</h2>
 
-<table class="table table-dark">
+<table class="table table-light">
     <thead>
         <tr>
             <th hidden>ID</th>
@@ -24,11 +24,11 @@
                 <td>@presupuesto.NombreDestinatario1</td>
                 <td>@presupuesto.FechaCreacion1</td>
                 <td>
-                    <a asp-controller="Presupuesto" asp-action="VerDetallesPresupuesto" asp-route-id="@presupuesto.IdPresupuesto">Ver Detalles</a>
+                    <a asp-controller="Presupuesto" asp-action="VerDetallesPresupuesto" asp-route-id="@presupuesto.IdPresupuesto" class="btn btn-primary">Ver Detalles</a>
                 </td>
                 <td>
-                    <a asp-controller="Presupuesto" asp-action="Modificar" asp-route-id="@presupuesto.IdPresupuesto">Editar</a>
-                    <a asp-controller="Presupuesto" asp-action="Eliminar" asp-route-id="@presupuesto.IdPresupuesto" onclick="return confirm('¿Estas seguro que quieres eliminar el elemento?')">Eliminar</a>                      
+                    <a asp-controller="Presupuesto" asp-action="Modificar" asp-route-id="@presupuesto.IdPresupuesto" class="btn btn-success">Editar</a>
+                    <a asp-controller="Presupuesto" asp-action="Eliminar" asp-route-id="@presupuesto.IdPresupuesto" class="btn btn-danger">Eliminar</a>                      
                 </td>
             </tr>
         }

@@ -1,12 +1,12 @@
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Detalles del Presupuesto";
 }
 
 @model List<TP6MVC.Models.PresupuestoDetalle>
 
-<h2>Product List</h2>
+<h2>Detalles del presupuesto</h2>
 
-<table class="table table-dark">
+<table class="table table-light">
     <thead>
         <tr>
             <th>Producto</th>
@@ -21,7 +21,7 @@
                 <td>@detalles.Producto.Descripcion1</td>
                 <td>@detalles.Cantidad1</td>
                 <td>
-                    <a asp-controller="Producto" asp-action="VerDetallesPresupuesto" asp-route-id="@detalles.Producto.Descripcion1">Ver Detalles</a>
+                    <a asp-controller="Presupuesto" asp-action="Eliminar" asp-route-id="@detalles.Producto.IdProducto" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
         }

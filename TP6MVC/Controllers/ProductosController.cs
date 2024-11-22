@@ -53,7 +53,15 @@ public class ProductoController : Controller
         return RedirectToAction("Listar");
     }
 
+    [HttpGet]
     public IActionResult Eliminar(int id)
+    {
+        Producto producto = repositorioProd.ObtenerProductoID(id);
+        return View(producto);
+    }
+
+    [HttpPost]
+    public IActionResult EliminarProducto(int id)
     {
         repositorioProd.eliminarProducto(id);
         return RedirectToAction("Listar");

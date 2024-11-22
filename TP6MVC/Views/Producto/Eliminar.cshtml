@@ -1,0 +1,9 @@
+@model TP6MVC.Models.Producto
+
+<body>
+    <h2>¿Estas seguro que desea eliminar este producto?</h2>
+    <form asp-controller="Producto" asp-action="EliminarProducto">
+        <input hidden asp-for="@Model.IdProducto" name="id">
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+    </form>
+</body>

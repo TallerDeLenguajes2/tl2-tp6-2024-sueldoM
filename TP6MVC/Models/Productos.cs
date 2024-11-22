@@ -1,4 +1,5 @@
 
+
 namespace TP6MVC.Models{
 public class Producto{
     private int idProducto;
@@ -10,7 +11,6 @@ public class Producto{
     public string? Descripcion1 {get => Descripcion; set => Descripcion = value;}
 
     public int Precio { get => precio; set => precio = value; }
-
-}
+    }
 }
 

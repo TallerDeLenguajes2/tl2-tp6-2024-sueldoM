@@ -1,14 +1,15 @@
 using Microsoft.AspNetCore.Mvc;
 using TP6MVC.Models; // Asegúrate de ajustar el namespace
 using System.Collections.Generic;
+using Microsoft.VisualBasic;
+
 namespace TP6MVC.Repositories{
 public class PresupuestoController : Controller
 {
     private readonly PresupuestosRepository repositorioPresup;
-
     private readonly ILogger<PresupuestoController> _logger;
 
-    public PresupuestoController(ILogger<PresupuestoController> logger)
+        public PresupuestoController(ILogger<PresupuestoController> logger)
     {
         _logger = logger;
         repositorioPresup = new PresupuestosRepository();
@@ -51,11 +52,20 @@ public class PresupuestoController : Controller
         return RedirectToAction("Listar");
     }
 
-    public IActionResult AgregarProducto(int idPresupuesto, PresupuestoDetalle presupuestoDetalle)
-    {
-        repositorioPresup.AgregarProductoAPresupuesto(idPresupuesto, presupuestoDetalle);
-        return RedirectToAction("Listar");
-    }
+ [HttpGet]
+public IActionResult AgregarProducto(int idPresupuesto)
+{
+    var presupuesto = repositorioPresup.ObtenerPresupuestoPorId(idPresupuesto);
+    return View(presupuesto);
+}
+
+[HttpPost]
+public IActionResult AgregarProducto(int idPresupuesto,PresupuestoDetalle detalle)
+{
+
+    repositorioPresup.AgregarProductoAPresupuesto(idPresupuesto, detalle);
+    return RedirectToAction("VerDetallesPresupuesto");
+}
 
     public IActionResult VerDetalles(int id)
     {
