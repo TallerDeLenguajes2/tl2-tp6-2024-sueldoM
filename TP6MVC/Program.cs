@@ -2,6 +2,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<IPresupuestosRepository, PresupuestosRepository>();
+builder.Services.AddSingleton<IProductosRepository, ProductosRepository>();
+builder.Services.AddSingleton<IUsuariosRepository, UsuariosRepository>(); // Lo agregaremos más adelante
+builder.Services.AddSession();
 
 var app = builder.Build();
 
@@ -23,5 +27,8 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.UseSession();
+
 
 app.Run();

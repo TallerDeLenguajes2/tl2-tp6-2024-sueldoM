@@ -10,6 +10,16 @@
 </head>
 <body>
     <header>
+        @if (Context.Session.GetString("Usuario") != null)
+        {
+            <span>Bienvenido, @Context.Session.GetString("Usuario")</span>
+            <a href="/Login/Logout" class="btn btn-danger">Cerrar sesión</a>
+        }
+        else
+        {
+            <a href="/Login/Index" class="btn btn-primary">Iniciar sesión</a>
+        }
+
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TP6MVC</a>

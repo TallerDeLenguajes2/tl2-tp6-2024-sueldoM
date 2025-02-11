@@ -9,6 +9,13 @@ public class PresupuestoController : Controller
     private readonly PresupuestosRepository repositorioPresup;
     private readonly ILogger<PresupuestoController> _logger;
 
+    private readonly IPresupuestosRepository _repository;
+
+    public PresupuestosController(IPresupuestosRepository repository)
+    {
+        _repository = repository;
+    }
+
         public PresupuestoController(ILogger<PresupuestoController> logger)
     {
         _logger = logger;
@@ -16,11 +23,13 @@ public class PresupuestoController : Controller
     }
 
     public IActionResult Listar()
-    {
-        List<Presupuesto> presupuestos = repositorioPresup.ListarPresupuestos();
-        return View(presupuestos);
-    }
-
+        {
+            if (HttpContext.Session.GetString("Rol") != "Administrador" && HttpContext.Session.GetString("Rol") != "Cliente")
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            return View(_repository.ObtenerTodos());
+        }
     public IActionResult Crear()
     {
         return View();
@@ -35,10 +44,15 @@ public class PresupuestoController : Controller
 
     public IActionResult Modificar(int id)
     {
-        Presupuesto presupuesto = repositorioPresup.ObtenerPresupuestoPorId(id);
+        if (HttpContext.Session.GetString("Rol") != "Administrador")
+        {
+            return RedirectToAction("Index", "Login");
+        }
+        var presupuesto = _repository.ObtenerPorId(id);
+        if (presupuesto == null) return NotFound();
         return View(presupuesto);
     }
-
+    
     [HttpPost]
     public IActionResult Modificar(int id, Presupuesto presupuesto)
     {
