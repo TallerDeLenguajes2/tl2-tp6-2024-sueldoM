@@ -6,8 +6,15 @@ builder.Services.AddSingleton<IPresupuestosRepository, PresupuestosRepository>()
 builder.Services.AddSingleton<IProductosRepository, ProductosRepository>();
 builder.Services.AddSingleton<IUsuariosRepository, UsuariosRepository>(); // Lo agregaremos más adelante
 builder.Services.AddSession();
+builder.Services.AddLogging();
+builder.Services.AddSingleton<string>(CadenaDeConexion);
+builder.Services.AddScoped<IPresupuestosRepository, PresupuestosRepository>();
 
 var app = builder.Build();
+var builder = WebApplication.CreateBuilder(args);
+
+var CadenaDeConexion = builder.Configuration.GetConnectionString("SqliteConexion")!;
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

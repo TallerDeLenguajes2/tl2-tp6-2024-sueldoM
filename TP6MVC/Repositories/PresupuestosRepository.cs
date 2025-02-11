@@ -7,6 +7,18 @@ using SQLitePCL;
 using TP6MVC.Models;
 
 namespace TP6MVC.Repositories{
+public class PresupuestosRepository : IPresupuestosRepository
+{
+    private readonly string _ConnectionString;
+    private readonly ILogger<PresupuestosRepository> _logger;
+
+    public PresupuestosRepository(string ConnectionString, ILogger<PresupuestosRepository> logger)
+    {
+        _ConnectionString = ConnectionString;
+        _logger = logger;
+    }
+}
+
 public class PresupuestosRepository
 {
     private string connectionString = "Data Source=db/Tienda.db;Cache=Shared";
@@ -40,6 +52,7 @@ public class PresupuestosRepository
 
     public Presupuesto ObtenerPresupuestoPorId(int id)
     {
+        try{
         var query = "SELECT * FROM Presupuestos WHERE idPresupuesto = @idPresupuesto";
         Presupuesto presupuesto = new Presupuesto();
         using (var connection = new SqliteConnection(connectionString))
@@ -60,6 +73,12 @@ public class PresupuestosRepository
             }
         }
         return presupuesto;
+        }
+        catch(Exception ex)
+        {
+            _logger.LogError($"Error al obtener el presupuesto {id}: {ex}");
+            throw;
+        }
     }
 
     public List<PresupuestoDetalle> obtenerDetalles(int id)

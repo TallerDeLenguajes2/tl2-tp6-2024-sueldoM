@@ -38,8 +38,16 @@ public class PresupuestoController : Controller
     [HttpPost]
     public IActionResult Crear(Presupuesto presupuesto)
     {
+        try
+        {
         repositorioPresup.CrearPresupuesto(presupuesto);
         return RedirectToAction("Listar");
+        }
+        catch (System.Exception)
+        {
+            logger.LogError(ex.ToString());
+            return BadRequest();
+        }
     }
 
     public IActionResult Modificar(int id)
@@ -52,7 +60,7 @@ public class PresupuestoController : Controller
         if (presupuesto == null) return NotFound();
         return View(presupuesto);
     }
-    
+
     [HttpPost]
     public IActionResult Modificar(int id, Presupuesto presupuesto)
     {
